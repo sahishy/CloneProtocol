@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ec2a60ed93fd4ed41860500550aa4749
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 4300000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 335682
+  packageName: Grid Shader(URP)
+  packageVersion: 1.0.0
+  assetPath: Assets/CodeWee/Resources/Meshes/Sphere.asset
+  uploadId: 795360

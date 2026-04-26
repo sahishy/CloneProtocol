@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 8b6e919b424f0524db209482565b36af
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 335682
+  packageName: Grid Shader(URP)
+  packageVersion: 1.0.0
+  assetPath: Assets/CodeWee/Resources/Scripts/RotateY.cs
+  uploadId: 795360

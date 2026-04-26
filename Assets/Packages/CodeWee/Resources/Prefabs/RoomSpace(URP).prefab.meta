@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 67ac089805eeacd4281b3524ef228e4f
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 335682
+  packageName: Grid Shader(URP)
+  packageVersion: 1.0.0
+  assetPath: Assets/CodeWee/Resources/Prefabs/RoomSpace(URP).prefab
+  uploadId: 795360

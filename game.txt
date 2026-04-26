@@ -1,0 +1,145 @@
+Clone Training Facility – Game Design Specification
+
+Overview:
+This is a top-down, grid-based puzzle game where the player writes a simple program that controls multiple identical clones simultaneously. Each clone executes the exact same sequence of commands, but due to differences in the environment (walls, conveyors, positions), they behave differently. The objective in each level is to get all activation tiles pressed at the same time for a short duration.
+
+Core Concept:
+The player does not control characters in real time. Instead, they define a short sequence of instructions (a program). All clones execute this program step-by-step in sync. The challenge comes from designing a single program that works across multiple clones experiencing different environmental conditions.
+
+Win Condition:
+A level is completed when all activation tiles are pressed simultaneously and remain pressed for approximately 0.5–1 second.
+
+Core Mechanics:
+
+1. Clones:
+
+* Multiple clones exist in each level.
+* All clones are identical and execute the same program.
+* Clones act simultaneously, step-by-step.
+
+2. Grid:
+
+* The level is a 2D grid (7x7 for each level, 2.15 * cell).
+* Each entity occupies one grid cell.
+* Movement and interactions are tile-based.
+
+3. Program System:
+
+* The player creates a sequence of commands before running the simulation.
+* Commands are executed in order, one per step, for all clones.
+* After the last command, execution stops.
+
+Commands:
+
+* Move Forward: move one tile in the direction the clone is facing.
+* Turn Left: rotate 90 degrees left.
+* Turn Right: rotate 90 degrees right.
+* Interact: interact with the tile directly in front (or current tile depending on implementation).
+
+Optional:
+
+* Repeat N: repeat a command or small block N times (keep simple, no nesting).
+
+Constraints:
+
+* Limit total commands per level (e.g., 5–6 commands max).
+* Keep the command set minimal to avoid complexity.
+
+4. Movement Rules:
+
+* Movement is one tile per “Move Forward” command.
+* If a clone attempts to move into a wall or obstacle, it does not move.
+* After each command step, environmental effects (like conveyors) are applied.
+
+5. Activation Tiles:
+
+* Tiles that become active when a clone or box is on them.
+* Visually distinct (e.g., glowing when pressed).
+* All activation tiles must be active simultaneously to complete the level.
+
+6. Walls:
+
+* Block movement.
+* Used to force clones to stop early, creating timing differences between clones.
+
+7. Conveyors:
+
+* Tiles that automatically move clones in a fixed direction after each step.
+* Applied after the player’s command is executed.
+* Used to create divergence in clone behavior (timing, position).
+
+8. Boxes (optional, later levels):
+
+* Can be pushed or interacted with.
+* Can activate tiles just like clones.
+* Introduced only after conveyors are understood.
+
+Game Loop:
+
+1. Player builds a short program.
+2. Player presses “Run”.
+3. All clones execute the program simultaneously.
+4. Environment modifies their movement (walls block, conveyors move).
+5. Check if all activation tiles are pressed simultaneously.
+6. If yes → level complete.
+7. If no → player resets and edits program.
+
+Level Design Principles:
+
+* Each level introduces only one new concept at a time.
+* Teach → reinforce → twist → challenge.
+* Keep early levels extremely simple and readable.
+* Ensure each level has a clear “aha moment”.
+
+Progression:
+
+Phase 1: Core System
+
+* Teach movement and interaction.
+* Teach that all clones share the same program.
+* Introduce slight positional differences.
+
+Phase 2: Walls
+
+* Show that walls can force clones to wait.
+* Use walls to create timing differences.
+* Require precise alignment using layout.
+
+Phase 3: Conveyors
+
+* Introduce automatic movement.
+* Show that environment changes outcomes.
+* Use conveyors to assign different roles to clones.
+
+Phase 4: Combined Challenges
+
+* Mix walls and conveyors.
+* Require player to design a system, not just a sequence.
+* Multiple clones performing different roles with the same program.
+
+Design Goals:
+
+* Simple controls, deep outcomes.
+* No unnecessary mechanics (avoid conditions, variables, etc.).
+* Puzzles should feel logical and fair.
+* Player should understand cause and effect clearly.
+* Each level should produce a clear realization (“aha moment”).
+
+Tone and Theme:
+
+* Light sci-fi / testing facility.
+* Player is training a multi-instance AI controlling cloned bodies.
+* Minimal story, mostly environmental and UI flavor text.
+
+Technical Notes:
+
+* Turn-based execution (step-by-step).
+* Deterministic behavior (no randomness).
+* Clear visual feedback for:
+    * tile activation
+    * clone movement
+    * conveyor influence
+* Fast reset and iteration loop is critical.
+
+End Goal:
+Create a short (5–9 level), highly polished puzzle experience that demonstrates a unique mechanic: one program controlling multiple entities that behave differently due to environmental variation.
