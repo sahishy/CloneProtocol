@@ -1,0 +1,3 @@
+AddEncoding br .br
+AddType application/javascript .js.br
+AddType application/wasm .wasm.br
